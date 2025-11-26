@@ -2,44 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Holiday Money Exchange – Daily Rates</title>
+  <title>Holiday Money Exchange – TV Display</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="slideshow">
-    <!-- Slide 1: dynamic buy/sell rates -->
-    <div class="slide slide-rates active" id="rates-slide">
-      <div class="rates-inner">
-        <h1>TODAY'S EXCHANGE RATES</h1>
-        <p class="rates-date" id="rates-date"></p>
-        <div class="rates-grid" id="rates-grid">
-          <!-- JS will inject rate cards here -->
-        </div>
-        <p class="rates-note">
-          Rates are for cash transactions and may change during the day.
-        </p>
-      </div>
-    </div>
+  <!-- Outer wrapper: we rotate this for your vertical TV (bottom on your left) -->
+  <div class="tv-wrapper">
+    <div class="tv-screen">
+      <div class="slideshow">
 
-    <!-- Slide 2: promo (placeholder background colour for now) -->
-    <div class="slide slide-promo promo-1">
-      <div class="promo-overlay">
-        <h1>Send money worldwide with Western Union</h1>
-        <p>Fast, secure transfers at Holiday Money Exchange.</p>
-      </div>
-    </div>
+        <!-- Slide 1: Rates -->
+        <section class="slide slide-rates active" id="rates-slide">
+          <header class="rates-header">
+            <div class="rates-header-left">
+              <img src="images/HME.JPG" alt="Holiday Money Exchange" class="hme-logo" />
+              <div>
+                <h1>Exchange Rates</h1>
+                <p id="last-updated" class="last-updated"></p>
+              </div>
+            </div>
+            <div class="rates-header-right">
+              <span class="brand-tag">Holiday Money Exchange</span>
+            </div>
+          </header>
 
-    <!-- Slide 3: promo -->
-    <div class="slide slide-promo promo-2">
-      <div class="promo-overlay">
-        <h1>Looking for the best deal in town?</h1>
-        <p>Come inside and speak to our team.</p>
+          <div class="rates-table">
+            <div class="rates-row rates-row--head">
+              <div class="cell cell-flag">Flag</div>
+              <div class="cell cell-code">Code</div>
+              <div class="cell cell-currency">Currency</div>
+              <div class="cell cell-buy">Buy</div>
+              <div class="cell cell-sell">Sell</div>
+            </div>
+            <div id="rates-body">
+              <!-- JS will inject rate rows here -->
+            </div>
+          </div>
+
+          <footer class="rates-footer">
+            <span id="error-message" class="error-message"></span>
+            <span class="disclaimer">
+              Rates are for cash transactions and may change during the day.
+            </span>
+          </footer>
+        </section>
+
+        <!-- Slide 2–6: Promo images (full-screen) -->
+        <section class="slide slide-promo" style="background-image: url('images/promo1.jpg');"></section>
+        <section class="slide slide-promo" style="background-image: url('images/promo2.jpg');"></section>
+        <section class="slide slide-promo" style="background-image: url('images/promo3.jpg');"></section>
+        <section class="slide slide-promo" style="background-image: url('images/promo4.jpg');"></section>
+        <section class="slide slide-promo" style="background-image: url('images/promo5.jpg');"></section>
+
       </div>
     </div>
   </div>
 
-  <!-- IMPORTANT: this must be here so JS actually runs -->
   <script src="script.js"></script>
 </body>
 </html>

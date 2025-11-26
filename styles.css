@@ -11,28 +11,47 @@ body {
   height: 100%;
   width: 100%;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #000000;
 }
 
-body {
-  background: #002366;
-  color: #ffffff;
+/* === TV rotation === */
+/* Browser thinks screen is landscape, but TV is rotated
+   so bottom is on your LEFT. Rotate content 90deg clockwise. */
+
+.tv-wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
+
+.tv-screen {
+  position: relative;
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(90deg);
+  transform-origin: center center;
+  background: #0f172a;
+  overflow: hidden;
+}
+
+/* === Slideshow === */
 
 .slideshow {
+  width: 100%;
+  height: 100%;
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
 }
 
 .slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .slide.active {
@@ -40,132 +59,177 @@ body {
   z-index: 1;
 }
 
-/* Rates slide */
+/* === Rates slide === */
 
 .slide-rates {
-  background: #002366;
+  background: #0f172a; /* deep navy */
+  color: #e5e7eb;
+  padding: 1rem 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.rates-inner {
-  text-align: center;
-  max-width: 80rem;
-  padding: 2rem;
-}
-
-.rates-inner h1 {
-  font-size: 3rem;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
-}
-
-.rates-date {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-}
-
-.rates-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.rate-card {
-  background: #f5c400;
-  color: #001133;
-  border-radius: 1.5rem;
-  padding: 1.25rem 1.5rem;
-}
-
-.rate-header {
+.rates-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.75rem;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.rate-header .currency {
-  font-size: 1.25rem;
+.rates-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hme-logo {
+  height: 52px;
+  width: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.rates-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
   font-weight: 700;
+}
+
+.last-updated {
+  margin: 0.1rem 0 0;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.brand-tag {
+  font-size: 0.8rem;
   text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: #f97316;
+  color: #111827;
+  font-weight: 700;
 }
 
-.rate-header .code {
-  font-size: 1rem;
+.rates-table {
+  flex: 1;
+  background: #020617;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.rates-row {
+  display: grid;
+  grid-template-columns: 70px 80px 1fr 120px 120px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.rates-row--head {
+  background: #020617;
+  border-bottom: 1px solid #1f2937;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  color: #9ca3af;
   font-weight: 600;
-  opacity: 0.8;
+  padding: 0.5rem 1rem;
 }
 
-.rate-values {
+#rates-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* body rows */
+.rates-row--body {
+  padding: 0.45rem 1rem;
+  border-bottom: 1px solid #111827;
+}
+
+.rates-row--body:nth-child(odd) {
+  background: #020617;
+}
+
+.rates-row--body:nth-child(even) {
+  background: #0b1120;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cell-flag {
+  font-size: 1.4rem;
+}
+
+.cell-code {
+  font-weight: 600;
+}
+
+.cell-currency {
+  color: #e5e7eb;
+}
+
+.cell-buy,
+.cell-sell {
+  justify-content: flex-end;
+  font-variant-numeric: tabular-nums;
+}
+
+.rate-pill {
+  min-width: 72px;
+  text-align: right;
+  padding: 0.18rem 0.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.rate-pill.buy {
+  background: #166534;
+  color: #bbf7d0;
+}
+
+.rate-pill.sell {
+  background: #1d4ed8;
+  color: #dbeafe;
+}
+
+/* footer */
+
+.rates-footer {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  align-items: center;
+  padding: 0.4rem 0.25rem 0;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  gap: 0.75rem;
 }
 
-.rate-block {
-  flex: 1;
-  text-align: center;
+.error-message {
+  color: #fca5a5;
+  min-height: 1em;
 }
 
-.rate-label {
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 0.25rem;
+/* === Promo slides === */
+
+.slide-promo {
+  background-size: cover;
+  background-position: center;
 }
 
-.rate-number {
-  font-size: 2.1rem;
-  font-weight: 800;
-}
-
-.rates-note {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* Promo slides (temporary colours) */
-
-.slide-promo.promo-1 {
-  background: #f5c400;
-}
-
-.slide-promo.promo-2 {
-  background: #ff5722;
-}
-
-.promo-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 2rem 3rem;
-  border-radius: 1.5rem;
-  text-align: left;
-  max-width: 40rem;
-}
-
-.promo-overlay h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.promo-overlay p {
-  font-size: 1.25rem;
-}
-
-@media (max-width: 768px) {
-  .rates-inner h1 {
-    font-size: 2rem;
-  }
-
-  .rate-number {
-    font-size: 1.7rem;
-  }
-
-  .promo-overlay {
-    padding: 1.5rem 1.75rem;
-  }
-
-  .promo-overlay h1 {
-    font-size: 1.75rem;
+/* Smaller screens (just in case) */
+@media (max-width: 900px) {
+  .rates-row {
+    grid-template-columns: 52px 64px 1fr 90px 90px;
   }
 }
-
