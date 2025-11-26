@@ -5,7 +5,7 @@ const SHEET_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vR4jaSDSAyxPrg6t6zSq-40nxkoEOOevw3nhjOjZv2aeqfIW8sMKbJ9EMYnlx6GCNWSQqo5DkD3s32T/pub?gid=0&single=true&output=csv";
 
 // Slide timing: 10 seconds
-const SLIDE_DURATION_MS = 10000;
+const SLIDE_DURATION_MS = 30000;
 
 // Refresh rates every 1 minute
 const RATES_REFRESH_MS = 60 * 1000;
