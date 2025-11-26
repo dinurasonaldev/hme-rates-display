@@ -1,0 +1,170 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: #002366; /* deep blue */
+  color: #ffffff;
+}
+
+.slideshow {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Rates slide */
+.slide-rates {
+  background: #002366;
+}
+
+.rates-inner {
+  text-align: center;
+  max-width: 80rem;
+  padding: 2rem;
+}
+
+.rates-inner h1 {
+  font-size: 3rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.rates-date {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.rates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.rate-card {
+  background: #f5c400; /* yellow */
+  color: #001133;
+  border-radius: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.rate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.rate-header .currency {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.rate-header .code {
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.rate-values {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.rate-block {
+  flex: 1;
+  text-align: center;
+}
+
+.rate-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.rate-number {
+  font-size: 2.1rem;
+  font-weight: 800;
+}
+
+.rates-note {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Promo slides */
+.slide-promo {
+  background-size: cover;
+  background-position: center;
+}
+
+.promo-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem 3rem;
+  border-radius: 1.5rem;
+  text-align: left;
+  max-width: 40rem;
+}
+
+.promo-overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.promo-overlay p {
+  font-size: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rates-inner h1 {
+    font-size: 2rem;
+  }
+
+  .rate-number {
+    font-size: 1.7rem;
+  }
+
+  .promo-overlay {
+    padding: 1.5rem 1.75rem;
+  }
+
+  .promo-overlay h1 {
+    font-size: 1.75rem;
+  }
+}

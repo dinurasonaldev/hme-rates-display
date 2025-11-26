@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holiday Money Exchange – Daily Rates</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="slideshow">
+    <!-- Slide 1: dynamic buy/sell rates -->
+    <div class="slide slide-rates active" id="rates-slide">
+      <div class="rates-inner">
+        <h1>Today's Exchange Rates</h1>
+        <p class="rates-date" id="rates-date"></p>
+        <div class="rates-grid" id="rates-grid">
+          <!-- Filled by JS -->
+        </div>
+        <p class="rates-note">
+          Rates are for cash transactions and may change during the day.
+        </p>
+      </div>
+    </div>
+
+    <!-- Slide 2: promo image 1 -->
+    <div class="slide slide-promo" style="background-image: url('images/promo1.jpg');">
+      <div class="promo-overlay">
+        <h1>Send money worldwide with Western Union</h1>
+        <p>Fast, secure transfers at Holiday Money Exchange.</p>
+      </div>
+    </div>
+
+    <!-- Slide 3: promo image 2 -->
+    <div class="slide slide-promo" style="background-image: url('images/promo2.jpg');">
+      <div class="promo-overlay">
+        <h1>Looking for the best deal in town?</h1>
+        <p>Come inside and speak to our team.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
