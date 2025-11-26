@@ -2,8 +2,8 @@
 const SHEET_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vR4jaSDSAyxPrg6t6zSq-40nxkoEOOevw3nhjOjZv2aeqfIW8sMKbJ9EMYnlx6GCNWSQqo5DkD3s32T/pub?output=csv";
 
-const SLIDE_DURATION_MS = 15000; // 15 seconds per slide
-const RATES_REFRESH_MS = 5 * 60 * 1000; // reload every 5 minutes
+const SLIDE_DURATION_MS = 15000; // 15 seconds
+const RATES_REFRESH_MS = 5 * 60 * 1000; // 5 minutes
 
 // ====== FETCH & RENDER RATES ======
 async function loadRates() {
@@ -16,7 +16,7 @@ async function loadRates() {
       .trim()
       .split("\n")
       .map((row) => row.split(","));
-    // First row = headers
+
     const headers = rows.shift().map((h) => h.trim().toLowerCase());
     const headerIndex = (name) => headers.indexOf(name);
 
@@ -100,3 +100,9 @@ function initSlideshow() {
 }
 
 // ====== INIT ======
+document.addEventListener("DOMContentLoaded", () => {
+  loadRates();
+  initSlideshow();
+  setInterval(loadRates, RATES_REFRESH_MS);
+});
+

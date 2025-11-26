@@ -11,10 +11,10 @@
     <!-- Slide 1: dynamic buy/sell rates -->
     <div class="slide slide-rates active" id="rates-slide">
       <div class="rates-inner">
-        <h1>Today's Exchange Rates</h1>
+        <h1>TODAY'S EXCHANGE RATES</h1>
         <p class="rates-date" id="rates-date"></p>
         <div class="rates-grid" id="rates-grid">
-          <!-- Filled by JS -->
+          <!-- JS will inject rate cards here -->
         </div>
         <p class="rates-note">
           Rates are for cash transactions and may change during the day.
@@ -22,16 +22,16 @@
       </div>
     </div>
 
-    <!-- Slide 2: promo image 1 -->
-    <div class="slide slide-promo" style="background-image: url('images/promo1.jpg');">
+    <!-- Slide 2: promo (placeholder background colour for now) -->
+    <div class="slide slide-promo promo-1">
       <div class="promo-overlay">
         <h1>Send money worldwide with Western Union</h1>
         <p>Fast, secure transfers at Holiday Money Exchange.</p>
       </div>
     </div>
 
-    <!-- Slide 3: promo image 2 -->
-    <div class="slide slide-promo" style="background-image: url('images/promo2.jpg');">
+    <!-- Slide 3: promo -->
+    <div class="slide slide-promo promo-2">
       <div class="promo-overlay">
         <h1>Looking for the best deal in town?</h1>
         <p>Come inside and speak to our team.</p>
@@ -39,7 +39,7 @@
     </div>
   </div>
 
+  <!-- IMPORTANT: this must be here so JS actually runs -->
   <script src="script.js"></script>
 </body>
 </html>
-
