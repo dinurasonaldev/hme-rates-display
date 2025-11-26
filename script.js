@@ -16,7 +16,6 @@ async function loadRates() {
       .trim()
       .split("\n")
       .map((row) => row.split(","));
-
     // First row = headers
     const headers = rows.shift().map((h) => h.trim().toLowerCase());
     const headerIndex = (name) => headers.indexOf(name);
